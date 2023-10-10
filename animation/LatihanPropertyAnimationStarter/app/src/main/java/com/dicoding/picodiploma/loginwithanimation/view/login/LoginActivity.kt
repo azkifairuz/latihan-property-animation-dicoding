@@ -38,7 +38,9 @@ class LoginActivity : AppCompatActivity() {
             repeatMode = ObjectAnimator.REVERSE
         }.start()
 
-
+        val btnLogin = ObjectAnimator
+            .ofFloat(binding.loginButton, View.ALPHA, 1f)
+            .setDuration(500)
     }
 
     private fun setupView() {
