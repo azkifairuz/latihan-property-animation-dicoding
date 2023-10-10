@@ -55,10 +55,10 @@ class LoginActivity : AppCompatActivity() {
             .ofFloat(binding.passwordTextView, View.ALPHA, 1f)
             .setDuration(500)
         val edtEmail = ObjectAnimator
-            .ofFloat(binding.emailEditText, View.ALPHA, 1f)
+            .ofFloat(binding.emailEditTextLayout, View.ALPHA, 1f)
             .setDuration(500)
         val edtPw = ObjectAnimator
-            .ofFloat(binding.passwordEditText, View.ALPHA, 1f)
+            .ofFloat(binding.passwordEditTextLayout, View.ALPHA, 1f)
             .setDuration(500)
 
         AnimatorSet().apply {
@@ -71,7 +71,7 @@ class LoginActivity : AppCompatActivity() {
                 edtEmail,
                 edtPw
             )
-        }
+        }.start()
     }
 
     private fun setupView() {
