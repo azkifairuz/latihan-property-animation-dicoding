@@ -1,5 +1,6 @@
 package com.dicoding.picodiploma.loginwithanimation.view.login
 
+import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.content.Intent
 import android.os.Build
@@ -41,6 +42,36 @@ class LoginActivity : AppCompatActivity() {
         val btnLogin = ObjectAnimator
             .ofFloat(binding.loginButton, View.ALPHA, 1f)
             .setDuration(500)
+        val tvTitle = ObjectAnimator
+            .ofFloat(binding.titleTextView, View.ALPHA, 1f)
+            .setDuration(500)
+        val tvMessage = ObjectAnimator
+            .ofFloat(binding.messageTextView, View.ALPHA, 1f)
+            .setDuration(500)
+        val tvEmail = ObjectAnimator
+            .ofFloat(binding.emailTextView, View.ALPHA, 1f)
+            .setDuration(500)
+        val tvPw = ObjectAnimator
+            .ofFloat(binding.passwordTextView, View.ALPHA, 1f)
+            .setDuration(500)
+        val edtEmail = ObjectAnimator
+            .ofFloat(binding.emailEditText, View.ALPHA, 1f)
+            .setDuration(500)
+        val edtPw = ObjectAnimator
+            .ofFloat(binding.passwordEditText, View.ALPHA, 1f)
+            .setDuration(500)
+
+        AnimatorSet().apply {
+            playSequentially(
+                btnLogin,
+                tvTitle,
+                tvEmail,
+                tvMessage,
+                tvPw,
+                edtEmail,
+                edtPw
+            )
+        }
     }
 
     private fun setupView() {
