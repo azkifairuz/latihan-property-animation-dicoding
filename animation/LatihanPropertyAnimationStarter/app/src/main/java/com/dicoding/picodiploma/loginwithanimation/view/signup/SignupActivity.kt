@@ -1,7 +1,10 @@
 package com.dicoding.picodiploma.loginwithanimation.view.signup
 
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
 import android.os.Build
 import android.os.Bundle
+import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
 import androidx.appcompat.app.AlertDialog
@@ -18,6 +21,49 @@ class SignupActivity : AppCompatActivity() {
 
         setupView()
         setupAction()
+        playAnimaion()
+    }
+
+    private fun playAnimaion() {
+        ObjectAnimator.ofFloat(binding.imageView, View.TRANSLATION_X, -40f,40f).apply {
+            duration = 6000
+            repeatCount = ObjectAnimator.INFINITE
+            repeatMode = ObjectAnimator.REVERSE
+        }.start()
+
+        val btnMasuk = ObjectAnimator
+            .ofFloat(binding.signupButton,View.ALPHA,1f)
+            .setDuration(500)
+        val edtName = ObjectAnimator
+            .ofFloat(binding.nameEditTextLayout,View.ALPHA,1f)
+            .setDuration(500)
+        val edtEmail = ObjectAnimator
+            .ofFloat(binding.emailEditTextLayout,View.ALPHA,1f)
+            .setDuration(500)
+        val edtPw = ObjectAnimator
+            .ofFloat(binding.passwordEditTextLayout,View.ALPHA,1f)
+            .setDuration(500)
+        val tvName = ObjectAnimator
+            .ofFloat(binding.nameTextView,View.ALPHA,1f)
+            .setDuration(500)
+        val tvEmail = ObjectAnimator
+            .ofFloat(binding.emailTextView,View.ALPHA,1f)
+            .setDuration(500)
+        val tvPw = ObjectAnimator
+            .ofFloat(binding.passwordEditText,View.ALPHA,1f)
+            .setDuration(500)
+
+        AnimatorSet().apply {
+            playSequentially(
+                btnMasuk,
+                edtName,
+                edtEmail,
+                edtPw,
+                tvName,
+                tvEmail,
+                tvPw,
+            )
+        }.start()
     }
 
     private fun setupView() {
