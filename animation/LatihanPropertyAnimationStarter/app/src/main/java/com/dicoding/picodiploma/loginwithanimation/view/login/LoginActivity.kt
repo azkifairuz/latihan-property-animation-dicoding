@@ -63,13 +63,13 @@ class LoginActivity : AppCompatActivity() {
 
         AnimatorSet().apply {
             playSequentially(
-                btnLogin,
                 tvTitle,
-                tvEmail,
                 tvMessage,
-                tvPw,
+                tvEmail,
                 edtEmail,
-                edtPw
+                tvPw,
+                edtPw ,
+                btnLogin
             )
         }.start()
     }

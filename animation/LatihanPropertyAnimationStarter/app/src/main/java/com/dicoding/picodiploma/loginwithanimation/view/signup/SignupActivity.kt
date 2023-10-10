@@ -46,22 +46,26 @@ class SignupActivity : AppCompatActivity() {
         val tvName = ObjectAnimator
             .ofFloat(binding.nameTextView,View.ALPHA,1f)
             .setDuration(500)
+        val title = ObjectAnimator
+            .ofFloat(binding.titleTextView,View.ALPHA,1f)
+            .setDuration(500)
         val tvEmail = ObjectAnimator
             .ofFloat(binding.emailTextView,View.ALPHA,1f)
             .setDuration(500)
         val tvPw = ObjectAnimator
-            .ofFloat(binding.passwordEditText,View.ALPHA,1f)
+            .ofFloat(binding.passwordTextView,View.ALPHA,1f)
             .setDuration(500)
 
         AnimatorSet().apply {
             playSequentially(
-                btnMasuk,
-                edtName,
-                edtEmail,
-                edtPw,
+                title,
                 tvName,
+                edtName,
                 tvEmail,
+                edtEmail,
                 tvPw,
+                edtPw,
+                btnMasuk,
             )
         }.start()
     }
