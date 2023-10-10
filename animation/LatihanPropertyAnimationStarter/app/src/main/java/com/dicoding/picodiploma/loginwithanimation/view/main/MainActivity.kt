@@ -1,8 +1,11 @@
 package com.dicoding.picodiploma.loginwithanimation.view.main
 
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
 import androidx.activity.viewModels
@@ -31,6 +34,29 @@ class MainActivity : AppCompatActivity() {
 
         setupView()
         setupAction()
+        playAnimation()
+
+    }
+
+    private fun playAnimation(){
+        ObjectAnimator.ofFloat(binding.imageView, View.TRANSLATION_X, -30f,30f).apply {
+            duration = 6000
+            repeatCount = ObjectAnimator.INFINITE
+            repeatMode = ObjectAnimator.REVERSE
+        }.start()
+        val name = ObjectAnimator
+            .ofFloat(binding.nameTextView, View.ALPHA, 1f)
+            .setDuration(500)
+        val msg = ObjectAnimator
+            .ofFloat(binding.messageTextView, View.ALPHA, 1f)
+            .setDuration(500)
+        val btn = ObjectAnimator
+            .ofFloat(binding.logoutButton, View.ALPHA, 1f)
+            .setDuration(500)
+        AnimatorSet().apply {
+            playSequentially(name,msg,btn)
+            start()
+        }
     }
 
     private fun setupView() {
